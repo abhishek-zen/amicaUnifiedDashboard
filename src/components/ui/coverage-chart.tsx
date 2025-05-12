@@ -8,19 +8,29 @@ import {
   CartesianGrid,
   Tooltip,
   ResponsiveContainer,
-  Defs,
-  LinearGradient,
-  Stop
 } from "recharts";
+import { ChartConfig, ChartContainer } from "./chart";
 
 type CoverageChartProps = {
   data: { time_frame: string; value: number }[];
 };
 
 export default function CoverageChart({ data }: CoverageChartProps) {
+  const chartConfig = {
+  desktop: {
+    label: "Desktop",
+    color: "#2563eb",
+  },
+  mobile: {
+    label: "Mobile",
+    color: "#60a5fa",
+  },
+} satisfies ChartConfig
+
   return (
     <div className="w-full h-[260px]">
-      <ResponsiveContainer width="100%" height="100%">
+      {/* <ResponsiveContainer width="100%" height="100%"> */}
+      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
         <AreaChart data={data} margin={{ top: 12, right: 32, left: 0, bottom: 8 }}>
           <defs>
             <linearGradient id="coverageGradient" x1="0" y1="0" x2="0" y2="1">
@@ -49,7 +59,8 @@ export default function CoverageChart({ data }: CoverageChartProps) {
             activeDot={{ r: 5 }}
           />
         </AreaChart>
-      </ResponsiveContainer>
+      {/* </ResponsiveContainer> */}
+      </ChartContainer>
     </div>
   );
 }

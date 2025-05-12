@@ -2,6 +2,9 @@ import React from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Menu } from "lucide-react";
+import { hasEnvVars } from "@/utils/supabase/check-env-vars";
+import { EnvVarWarning } from "@/components/env-var-warning";
+import AuthButton from "@/components/header-auth";
 
 export default function TopBar() {
   return (
@@ -35,6 +38,7 @@ export default function TopBar() {
       >
         <Menu className="w-7 h-7" />
       </button>
+      {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
     </header>
   );
 }

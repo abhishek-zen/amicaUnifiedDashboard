@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { ShieldCheck, BarChart3, Settings, Menu, X } from "lucide-react";
-import { useMobile } from "@/hooks/use-mobile";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 type NavItem = {
   href: string;
@@ -34,7 +34,7 @@ const navItems: NavItem[] = [
 export default function SideNav() {
   // For demo, assume user has "admin" permission
   const userPermission = "admin";
-  const mobile = useMobile();
+  const mobile = useIsMobile();
   const [open, setOpen] = useState(false);
 
   const filteredNav = navItems.filter(
