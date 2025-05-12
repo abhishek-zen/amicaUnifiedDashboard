@@ -29,8 +29,8 @@ export default function CoverageChart({ data }: CoverageChartProps) {
 
   return (
     <div className="w-full h-[260px]">
-      {/* <ResponsiveContainer width="100%" height="100%"> */}
-      <ChartContainer config={chartConfig} className="min-h-[200px] w-full">
+      <ResponsiveContainer width="100%" height="100%"> 
+      
         <AreaChart data={data} margin={{ top: 12, right: 32, left: 0, bottom: 8 }}>
           <defs>
             <linearGradient id="coverageGradient" x1="0" y1="0" x2="0" y2="1">
@@ -59,8 +59,8 @@ export default function CoverageChart({ data }: CoverageChartProps) {
             activeDot={{ r: 5 }}
           />
         </AreaChart>
-      {/* </ResponsiveContainer> */}
-      </ChartContainer>
+      </ResponsiveContainer> 
+      
     </div>
   );
 }
