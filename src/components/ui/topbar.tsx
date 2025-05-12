@@ -5,6 +5,7 @@ import { Menu } from "lucide-react";
 import { hasEnvVars } from "@/utils/supabase/check-env-vars";
 import { EnvVarWarning } from "@/components/env-var-warning";
 import AuthButton from "@/components/header-auth";
+import { ThemeSwitcher } from "../theme-switcher";
 
 export default function TopBar() {
   return (
@@ -38,7 +39,10 @@ export default function TopBar() {
       >
         <Menu className="w-7 h-7" />
       </button>
+      <div className="gap-2 flex items-center ml-1">
+      <ThemeSwitcher />
       {!hasEnvVars ? <EnvVarWarning /> : <AuthButton />}
+      </div>
     </header>
   );
 }
